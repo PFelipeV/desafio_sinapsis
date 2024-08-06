@@ -1,0 +1,8 @@
+<div class="row row-cols-1 row-cols-3">
+  <ng-container *forProduct="let product; ofType: 'default'">
+  </ng-container>
+
+  <div *ngFor="let product of products">
+    <ng-container *ngTemplateOutlet="getTemplate(product); context: getContext(product)"></ng-container>
+  </div>
+</div>

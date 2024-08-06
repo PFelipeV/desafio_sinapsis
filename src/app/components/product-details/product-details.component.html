@@ -1,0 +1,10 @@
+<div class="product-details-overlay" *ngIf="product">
+  <div class="product-details-content">
+    <h2>{{ product.name }}</h2>
+    <p>Precio: S/ {{ product.price }}</p>
+    <p>Categoria: {{ product.category }}</p>
+    <img *ngIf="product.image" [src]="product.image" alt="{{ product.name }}" class="product-image">
+
+    <button class="btn btn-secondary" (click)="onClose()">Cerrar</button>
+  </div>
+</div>

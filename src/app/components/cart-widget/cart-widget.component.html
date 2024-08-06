@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="body">
+    <div *ngFor="let item of items$ | async">
+      <div class="row d-flex align-items-center py-2">
+        <div class="col-3 col-sm-2 text-center">
+          <button class="btn trash p-0" (click)="cart.removeProduct(item.product, true)">
+            <img src="../../../assets/trash.svg" width="16px" alt="Eliminar">
+          </button>
+        </div>
+        <div class="col-6 col-sm-7 text-left">
+          {{ item.amount }} x {{ item.product.name }} - S/ {{ item.product.price }}
+        </div>
+        <div class="col-3 col-sm-3 text-right font-weight-bold text-dark">
+          S/ {{ item.subtotal }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-4 mt-2">
+    <span class="text-black-50 h5 m-0">Total </span>
+    <span class="font-weight-bold m-0" style="font-size: 24px;">S/ {{ total$ | async }}</span>
+    <hr class="m-0" />
+    <button class="btn btn-warning w-100 mt-3 text-white font-weight-bold"
+        [attr.disabled]="!hasItems ? true : null"
+        (click)="checkout()">Comprar</button>
+  </div>
+</div>
